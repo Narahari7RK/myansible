@@ -3,13 +3,13 @@
   become: true
   become_user: root
   tasks:
-  - name: Install git
-    yum: name=git state=present
   - name: Install docker
     yum: name=docker state=present
   - name: Start docker
     service: name=docker state=started
   - name: login docker hub
     command: docker login --username 04071988 --password North@123
+  - name: pull docker file
+    command: docker pull devopsedu/webapp
   - name: deploy webapp
-    command: docker run -itd -p 8888:80 --name c1 devopsedu/webapp
+    command: docker run --name c1 -d -p 8888:80 devopsedu/webapp 
