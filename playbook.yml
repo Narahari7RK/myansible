@@ -12,4 +12,4 @@
   - name: pull docker file
     command: docker pull devopsedu/webapp
   - name: deploy webapp
-    command: docker run --name c1 -d -p 8888:80 devopsedu/webapp 
+    command: docker run --name c2 -d -p 8989:80 corbinu/docker-phpmyadmin 
