@@ -12,4 +12,4 @@
   - name: login docker hub
     command: docker login --username 04071988 --password North@123
   - name: deploy webapp
-    command: docker run  -itd -P --name c4 04071988/myimage12
+    command: docker run  -itd -P --name c4 hello-world
