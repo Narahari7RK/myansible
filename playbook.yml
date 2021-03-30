@@ -14,5 +14,9 @@
   - name: login docker hub
     command: docker login --username 04071988 --password North@123
   - name: deploy webapp
-    command: docker run -itd -P devopsedu/webapp
+    command: docker run -itd -P --name c1 devopsedu/webapp
+    notify: restart tomcat
+   handlers:
+  - name: restart tomcat
+    service: name=tomcat state=restarted 
 
