@@ -10,6 +10,6 @@
   - name: login docker hub
     command: docker login --username 04071988 --password North@123
   - name: deploy webapp
-    command: docker run -itd -p 8282:8282 --name c2 devopsedu/webapp:latest
+    command: docker run -itd -p 8383:8383 --name c2 devopsedu/webapp:latest
    
 
