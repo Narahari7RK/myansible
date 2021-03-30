@@ -7,6 +7,9 @@
     yum: name=tomcat state=present
   - name: start tomcat
     service: name=tomcat state=started
+  handlers:
+  - name: restart tomcat
+    service: name=tomcat state=restarted 
   - name: install docker
     yum: name=docker state=present
   - name: Start docker
@@ -16,7 +19,5 @@
   - name: deploy webapp
     command: docker run -itd -P --name c1 devopsedu/webapp
     notify: restart tomcat
-   handlers:
-  - name: restart tomcat
-    service: name=tomcat state=restarted 
+   
 
