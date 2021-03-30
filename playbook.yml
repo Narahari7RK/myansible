@@ -3,13 +3,16 @@
   become: true
   become_user: root
   tasks:
-  - name: Install docker
+  - name: install tomcat
+    yum: name=tomcat state=present
+  - name: start tomcat
+    service: name=tomcat state=started
+  - name: install docker
     yum: name=docker state=present
   - name: Start docker
     service: name=docker state=started
   - name: login docker hub
     command: docker login --username 04071988 --password North@123
-  - name: pull docker file
-    command: docker pull devopsedu/webapp
   - name: deploy webapp
-    command: docker run --name c1 -d -p 8989:80 devopsedu/webapp 
+    command: docker run -itd -P devopsedu/webapp
+
