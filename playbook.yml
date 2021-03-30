@@ -3,13 +3,6 @@
   become: true
   become_user: root
   tasks:
-  - name: install tomcat
-    yum: name=tomcat state=present
-  - name: start tomcat
-    service: name=tomcat state=started
-  handlers:
-  - name: restart tomcat
-    service: name=tomcat state=restarted 
   - name: install docker
     yum: name=docker state=present
   - name: Start docker
@@ -18,6 +11,5 @@
     command: docker login --username 04071988 --password North@123
   - name: deploy webapp
     command: docker run -itd -P --name c1 devopsedu/webapp
-    notify: restart tomcat
    
 
