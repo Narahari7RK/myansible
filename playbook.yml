@@ -10,6 +10,9 @@
   - name: login docker hub
     command: docker login --username 04071988 --password North@123
   - name: deploy webapp
-    command: docker run -itd -p 8020:80 --name c20 devopsedu/webapp:latest
+    command: docker run -itd -P --name c17 devopsedu/webapp
+  - name: start apache2 service
+    command: docker exec -d c1 bash -c 'service apache2 start'
+
    
 
